@@ -9,3 +9,13 @@
     ports:
       - 80:80
 
+- name: Check all ports are accessible from current host
+  wait_for:
+    host: "127.0.0.1"
+    port: "{{ item }}"
+    state: started         # Port should be open
+    delay: 0               # No wait before first check (sec)
+    timeout: 500             # Stop checking after timeout (sec)
+#  ignore_errors: yes
+  with_items:
+    - 80 # web
