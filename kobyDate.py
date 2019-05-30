@@ -19,7 +19,9 @@ class Handler(BaseHTTPRequestHandler):
             self.send_header('Content-type',    'text/html')
             self.end_headers()
             self.wfile.write( "<h1>KOBY TEST TO TIKAL: %s</h1>"%(datetime.datetime.now()) )
-            self.wfile.write( "<br>Commit ID = %s "%("aaa") )
+            with open("/opt/git_commit", 'r') as fin:
+                commit = fin.read()
+            self.wfile.write( "<br>Commit ID = %s "%(commit) )
 
 class ThreadedHTTPServer(ThreadingMixIn, HTTPServer):
     """Handle requests in a separate thread."""
