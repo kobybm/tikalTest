@@ -1,6 +1,6 @@
 ---
 
-- name: Re-create a redis container
+- name: Re-create the web container
   docker_container:
     name: "web"
     image: "web:ci"

@@ -1,5 +1,11 @@
 ---
 
+- name: Update repositories cache and install "pip" package
+  apt:
+    name: python-pip
+    update_cache: yes
+
+
 - name: install pip
   pip:
-          name: docker-py
+    name: docker-py
