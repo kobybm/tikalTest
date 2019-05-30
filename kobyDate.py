@@ -16,12 +16,13 @@ class Handler(BaseHTTPRequestHandler):
     def do_GET(self):
         if self.path.startswith('/tikal'):
             self.send_response(200)
-            self.send_header('Content-type',    'text/html')
+            self.send_header('Content-type',    'text/plain')
             self.end_headers()
-            self.wfile.write( "<h1>KOBY TEST TO TIKAL: %s</h1>"%(datetime.datetime.now()) )
+            self.wfile.write( "KOBY TEST TO TIKAL: %s"%(datetime.datetime.now()) )
+            self.wfile.write("\n\n\n")
             with open("/opt/git_commit", 'r') as fin:
                 commit = fin.read()
-            self.wfile.write( "<br>Commit ID = %s "%(commit) )
+            self.wfile.write( "Commit:\n\n%s "%(commit) )
 
 class ThreadedHTTPServer(ThreadingMixIn, HTTPServer):
     """Handle requests in a separate thread."""
