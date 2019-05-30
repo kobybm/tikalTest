@@ -5,7 +5,15 @@ from BaseHTTPServer import HTTPServer, BaseHTTPRequestHandler
 from SocketServer import ThreadingMixIn
 
 import datetime
+import sys
 
+if len(sys.argv) > 1:
+    try:
+        port = int(sys.argv[1])
+    except:
+        port = 80
+else:
+    port = 80
 
 class Handler(BaseHTTPRequestHandler):
     def do_HEAD(self):
@@ -27,8 +35,8 @@ class Handler(BaseHTTPRequestHandler):
 class ThreadedHTTPServer(ThreadingMixIn, HTTPServer):
     """Handle requests in a separate thread."""
 
-server = ThreadedHTTPServer(('0.0.0.0', 80), Handler)
+server = ThreadedHTTPServer(('0.0.0.0', port), Handler)
 print 'Starting server, use <Ctrl-C> to stop'
-print "Started on port: 80"
+print "Started on port: %s"%port
 server.serve_forever()
 
