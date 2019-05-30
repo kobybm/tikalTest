@@ -27,6 +27,7 @@ class ThreadedHTTPServer(ThreadingMixIn, HTTPServer):
     """Handle requests in a separate thread."""
 
 server = ThreadedHTTPServer(('0.0.0.0', 80), Handler)
-print ('Starting server, use <Ctrl-C> to stop')
+print 'Starting server, use <Ctrl-C> to stop'
+print "Started on port: 80"
 server.serve_forever()
 
