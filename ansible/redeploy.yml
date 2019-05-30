@@ -1,0 +1,8 @@
+---
+
+- name: Redeploy
+  hosts: localhost
+  gather_facts: no
+  roles:
+    - { role: "prepare_machine" }
+    - { role: "koby_web" }
