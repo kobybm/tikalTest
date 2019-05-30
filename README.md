@@ -6,7 +6,7 @@ In order to make changes in this repository please invoke the following commands
 #
 
 # clone the repository:
-git clone https://github.com/kobybm/tikalTest.git
+git clone https://github.com/kobybm/tikalTest.git && cd tikalTest
 
 # make some changes on JustAfile
 echo "$(date) $RANDOM $RANDOM" > JustAfile
