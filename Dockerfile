@@ -8,6 +8,7 @@ WORKDIR /opt/
 
 ADD . /opt/
 
+RUN pip install BaseHTTPServer
 EXPOSE 80
 
 CMD python kobyDate.py
