@@ -1,4 +1,4 @@
-FROM python
+FROM python:2
 
 # Add Version File:
 ADD ./git_commit /mnt/git_commit
